@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KantinKu — Pemesanan Digital Kantin Kampus</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="appRoot">
+  <aside>
+    <div class="brand"><div class="brand-mark">✿</div><div><div class="brand-name">KantinKu</div><div class="brand-sub">order with a smile</div></div></div>
+    <div><div class="nav-label">MENU UTAMA</div><nav class="nav" aria-label="Menu utama">
+      <button class="nav-btn active" data-view="dashboard"><span class="ico">⌂</span>Dashboard</button>
+      <button class="nav-btn" data-view="menu"><span class="ico">♡</span>Menu Kantin</button>
+      <button class="nav-btn" data-view="pembayaran"><span class="ico">▧</span>Pembayaran</button>
+      <button class="nav-btn" data-view="pesanan"><span class="ico">▤</span>Pesanan Masuk</button>
+      <button class="nav-btn" data-view="riwayat"><span class="ico">✓</span>Riwayat & Laporan</button>
+    </nav></div>
+    <div class="side-note"><div class="flower">🌷</div><strong>Pesanan tercatat, hati tenang!</strong><p>Setiap pesanan tersimpan di layar agar pembeli dan penjual punya catatan yang sama.</p></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><div class="eyebrow" id="pageEyebrow">RUANG KENDALI KANTIN</div><h1 id="pageTitle">Pesanan rapi, kantin happy ✨</h1><div class="subtitle" id="pageSubtitle">Pantau pesanan dan kelola menu kantin dalam satu tempat.</div></div><div class="profile"><div class="profile-bubble">🍓</div><div class="profile-copy"><div class="profile-name">Kantin Auditorium</div><div class="profile-role">Sistem pemesanan digital</div></div></div></header>
+    <nav class="mobile-menu" aria-label="Navigasi seluler"><button class="nav-btn active" data-view="dashboard">⌂ Dashboard</button><button class="nav-btn" data-view="menu">♡ Menu</button><button class="nav-btn" data-view="pembayaran">▧ Bayar</button><button class="nav-btn" data-view="pesanan">▤ Pesanan</button><button class="nav-btn" data-view="riwayat">✓ Riwayat</button></nav>
+    <section class="view active" id="view-dashboard">
+      <div class="hero"><div class="hero-copy"><div class="hero-tag">✦ KANTIN AUDITORIUM UNIMED</div><h2>Pesanan tepat, pelayanan lebih hangat.</h2><p>Pembeli memilih menu dan mengirim pesanan secara digital. Pesanan langsung tercatat agar risiko lupa atau tertukar bisa dikurangi.</p></div><button class="hero-btn" data-goto="menu">Mulai pesan&nbsp; ♡</button></div>
+      <div class="stats">
+        <div class="stat"><div class="stat-top"><span class="stat-label">Pesanan hari ini</span><span class="stat-icon">🧾</span></div><div class="stat-value" id="statOrders">0</div><div class="stat-foot">Pesanan tercatat di sistem</div></div>
+        <div class="stat"><div class="stat-top"><span class="stat-label">Menunggu diproses</span><span class="stat-icon">🍳</span></div><div class="stat-value" id="statPending">0</div><div class="stat-foot">Perlu disiapkan penjual</div></div>
+        <div class="stat"><div class="stat-top"><span class="stat-label">Selesai disiapkan</span><span class="stat-icon">🌸</span></div><div class="stat-value" id="statDone">0</div><div class="stat-foot">Siap diambil pembeli</div></div>
+        <div class="stat"><div class="stat-top"><span class="stat-label">Menu tersedia</span><span class="stat-icon">🍱</span></div><div class="stat-value" id="statMenu">0</div><div class="stat-foot">Menu yang bisa dipesan</div></div>
+      </div>
+      <div class="grid-two"><div class="panel"><div class="panel-head"><div><h3>Alur pemesanan 🌷</h3><div class="panel-desc">Langkah sederhana untuk pembeli dan penjual</div></div><span class="pill">3 langkah</span></div><div class="mini-list"><div class="stock-row"><div class="product-emoji">📱</div><div><div class="stock-name">1. Pembeli memilih menu</div><div class="stock-meta">Buka web lewat QR code, pilih porsi dan catatan.</div></div></div><div class="stock-row"><div class="product-emoji">🧾</div><div><div class="stock-name">2. Pesanan tercatat otomatis</div><div class="stock-meta">Ringkasan pesanan muncul di daftar pesanan penjual.</div></div></div><div class="stock-row"><div class="product-emoji">🍲</div><div><div class="stock-name">3. Penjual menyiapkan pesanan</div><div class="stock-meta">Status diperbarui hingga pesanan siap diambil.</div></div></div></div></div>
+        <div class="panel"><div class="panel-head"><div><h3>Kenapa KantinKu? 💗</h3><div class="panel-desc">Fokus solusi dari Product Concept Paper</div></div></div><div class="notice">✓ Pesanan tidak hanya mengandalkan ingatan.<br><br>✓ Pembeli bisa memeriksa menu, jumlah, dan total sebelum mengirim.<br><br>✓ Penjual mendapat catatan pesanan yang jelas, termasuk catatan khusus dan metode pembayaran.</div></div></div>
+      <div class="panel table-panel"><div class="table-toolbar"><div><h3>Pesanan terbaru</h3><div class="panel-desc">Pesanan yang baru dikirim pembeli</div></div><div class="toolbar-actions"><button class="btn" data-goto="pesanan">Lihat semua →</button></div></div><div class="table-scroll"><table><thead><tr><th>No. antrean</th><th>Nama pemesan</th><th>Ringkasan pesanan</th><th>Total</th><th>Pembayaran</th><th>Status</th></tr></thead><tbody id="dashboardOrders"></tbody></table></div></div>
+    </section>
+    <section class="view" id="view-menu">
+      <div class="section-title"><div><h2>Menu Kantin 🍓</h2><p>Pilih makanan dan minuman, atur porsi, lalu periksa pesanan sebelum dikirim.</p></div><span class="pill" id="cartCount">Keranjang: 0 item</span></div>
+      <div class="panel" style="margin-bottom:16px"><div class="form-grid"><div class="field"><label for="buyerName">Nama pemesan</label><input id="buyerName" maxlength="50" placeholder="Masukkan nama kamu"></div><div class="field"><label for="buyerNote">Catatan pesanan (opsional)</label><input id="buyerNote" maxlength="120" placeholder="Contoh: sambal dipisah"></div></div></div>
+      <div class="toolbar-actions" style="margin-bottom:15px"><input id="searchMenu" class="search" type="search" placeholder="Cari menu..." aria-label="Cari menu"><select id="menuCategory" class="search" aria-label="Filter kategori"><option value="all">Semua kategori</option><option>Nasi</option><option>Lauk</option><option>Sayur</option><option>Snack</option><option>Minuman</option></select></div>
+      <div class="menu-grid" id="menuGrid"></div>
+      <div class="panel" style="margin-top:18px"><div class="panel-head"><div><h3>Ringkasan pesanan 🧺</h3><div class="panel-desc">Periksa jumlah dan total sebelum mengirim pesanan.</div></div><span class="pill">Keranjang</span></div><div id="cartItems"><div class="empty">Keranjang masih kosong. Pilih menu favoritmu ya! 🌸</div></div><div class="result-highlight" style="margin-top:14px;margin-bottom:0"><div><div class="caption">TOTAL PEMBAYARAN</div><div class="big" id="cartTotal">Rp0</div></div><div class="field" style="min-width:180px"><label for="paymentMethod">Metode pembayaran</label><select id="paymentMethod"><option>Tunai</option><option>QRIS</option></select></div></div><div class="form-actions"><button class="btn" id="clearCart">Kosongkan</button><button class="btn primary" id="submitOrder">Kirim pesanan ✦</button></div><div class="panel-desc">Jika memilih QRIS, setelah pesanan dikirim kamu akan diarahkan ke menu Pembayaran untuk melihat QR demo.</div></div>
+    </section>
+    <section class="view" id="view-pembayaran">
+      <div class="section-title"><div><h2>Pembayaran 💳</h2><p>Lihat QR pembayaran demo dan konfirmasi pembayaran pesanan.</p></div><span class="pill">Pembayaran</span></div>
+      <div class="grid-two">
+        <div class="panel"><div class="panel-head"><div><h3>QRIS KantinKu 🌸</h3><div class="panel-desc">QR ilustrasi untuk demonstrasi alur pembayaran</div></div><span class="pill">QRIS</span></div>
+          <div style="display:grid;place-items:center;padding:12px 0 18px"><div class="qris-frame"><div class="qris-brand">▦ <span>QRIS</span></div><div class="demo-qr" aria-label="Ilustrasi kode QR demo"><svg viewBox="0 0 210 210" role="img" aria-label="Pola QR demo bukan kode pembayaran aktif"><rect width="210" height="210" fill="#fff"/><g fill="#222"><path d="M8 8h56v56H8z M16 16v40h40V16z M24 24h24v24H24z M146 8h56v56h-56z M154 16v40h40V16z M162 24h24v24h-24z M8 146h56v56H8z M16 154v40h40v-40z M24 162h24v24H24z"/><path d="M76 8h10v10H76z M96 8h10v10H96z M116 8h10v10h-10z M76 28h20v10H76z M106 28h10v20h-10z M126 38h10v10h-10z M76 48h10v20H76z M96 58h20v10H96z M76 78h10v10H76z M96 78h10v10H96z M116 78h20v10h-20z M146 78h10v20h-10z M166 78h10v10h-10z M186 78h16v10h-16z M8 78h20v10H8z M38 78h20v10H38z M28 96h10v20H28z M48 96h20v10H48z M78 96h10v10H78z M98 96h20v10H98z M128 96h10v20h-10z M148 106h20v10h-20z M178 96h10v20h-10z M198 96h4v10h-4z M8 116h10v20H8z M38 126h20v10H38z M78 116h20v10H78z M108 116h10v20h-10z M138 126h10v10h-10z M168 126h20v10h-20z M198 116h4v20h-4z M76 146h10v10H76z M96 136h10v20H96z M116 146h20v10h-20z M146 146h10v10h-10z M166 146h10v20h-10z M186 146h16v10h-16z M76 166h20v10H76z M106 166h10v20h-10z M126 176h10v10h-10z M146 186h20v10h-20z M176 176h10v20h-10z M196 176h6v10h-6z"/></g></svg></div><strong style="font-size:13px;margin-top:12px">Kantin Auditorium UNIMED</strong><span class="panel-desc" style="text-align:center;margin-top:5px">QR demo · tidak dapat dipindai untuk membayar</span></div>
+          <div class="notice">⚠️ Ini hanya QR ilustrasi untuk prototipe. Agar bisa menerima pembayaran sungguhan, ganti dengan QRIS resmi milik merchant kantin atau integrasi penyedia pembayaran.</div>
+        </div>
+        <div class="panel"><div class="panel-head"><div><h3>Konfirmasi pembayaran</h3><div class="panel-desc">Pilih pesanan yang ingin dibayar</div></div></div>
+          <div class="field"><label for="paymentOrderSelect">Nomor antrean</label><select id="paymentOrderSelect" class="search" style="width:100%"><option value="">Belum ada pesanan</option></select></div>
+          <div id="paymentOrderDetails" class="notice" style="margin-top:14px">Pesanan yang memilih QRIS akan muncul di sini setelah dikirim.</div>
+          <div class="form-actions"><button class="btn" id="refreshPaymentOrders">Perbarui daftar</button><button class="btn primary" id="confirmPayment" disabled>Konfirmasi sudah dibayar ✓</button></div>
+          <div class="panel-desc">Tombol konfirmasi hanya simulasi untuk demo. Pada sistem produksi, status lunas seharusnya diverifikasi otomatis melalui penyedia pembayaran.</div>
+        </div>
+      </div>
+    </section>
+    <section class="view" id="view-pesanan">
+      <div class="section-title"><div><h2>Pesanan Masuk 🧾</h2><p>Kelola pesanan pembeli dan perbarui statusnya setelah disiapkan.</p></div><span class="pill" id="ordersCount">0 pesanan</span></div>
+      <div class="toolbar-actions" style="margin-bottom:15px"><input id="searchOrders" class="search" type="search" placeholder="Cari nama / nomor antrean..."><select id="orderStatusFilter" class="search"><option value="all">Semua status</option><option value="Menunggu pembayaran">Menunggu pembayaran</option><option value="Menunggu">Siap diproses</option><option value="Diproses">Diproses</option><option value="Selesai">Selesai</option></select></div>
+      <div id="ordersList" class="mini-list"></div>
+    </section>
+    <section class="view" id="view-riwayat">
+      <div class="section-title"><div><h2>Riwayat & Laporan 📝</h2><p>Rekap pesanan untuk membantu penjual mengecek pencatatan harian.</p></div><button class="btn primary" id="exportCsv">↓ Ekspor CSV</button></div>
+      <div class="report-cards"><div class="report-card"><div class="r-ico">🧾</div><strong id="reportOrders">0</strong><span>Total pesanan tercatat</span></div><div class="report-card"><div class="r-ico">💗</div><strong id="reportRevenue">Rp0</strong><span>Total nilai pesanan selesai</span></div><div class="report-card"><div class="r-ico">🍱</div><strong id="reportItems">0</strong><span>Porsi/menu dipesan</span></div></div>
+      <div class="panel table-panel"><div class="table-toolbar"><div><h3>Riwayat pesanan</h3><div class="panel-desc">Semua pesanan yang tercatat di prototipe ini</div></div></div><div class="table-scroll"><table><thead><tr><th>No. antrean</th><th>Nama pemesan</th><th>Detail</th><th>Total</th><th>Pembayaran</th><th>Status</th></tr></thead><tbody id="historyTable"></tbody></table></div></div>
+      <div class="panel" style="margin-top:16px"><div class="panel-head"><div><h3>Catatan cakupan sistem</h3><div class="panel-desc">Sesuai Product Concept Paper kelompok</div></div></div><p style="font-size:12px;line-height:1.8;color:var(--muted);margin:0">Website ini merupakan prototipe konsep untuk kantin Auditorium Universitas Negeri Medan. QR pada menu pembayaran adalah ilustrasi demo, bukan QRIS aktif. Konfirmasi pembayaran masih simulasi manual; sistem produksi memerlukan QRIS resmi/integrasi penyedia pembayaran dan database server.</p></div>
+    </section>
+    <div class="footer-note">KantinKu · Sistem Pemesanan Digital Terintegrasi untuk Kantin Kampus · Prototipe Pemrograman Web 2026</div>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="menuModal" role="dialog" aria-modal="true" aria-labelledby="menuModalTitle"><div class="modal"><div class="modal-head"><h3 id="menuModalTitle">Tambah ke keranjang</h3><button class="close" id="closeMenuModal" aria-label="Tutup">×</button></div><div id="modalFoodInfo"></div><div class="field" style="margin-top:14px"><label for="modalQty">Jumlah porsi</label><input id="modalQty" type="number" min="1" max="30" value="1"></div><div class="field" style="margin-top:12px"><label for="modalItemNote">Catatan untuk menu ini (opsional)</label><input id="modalItemNote" maxlength="100" placeholder="Contoh: tanpa kecap"></div><div class="form-actions"><button class="btn" id="cancelMenuModal">Batal</button><button class="btn primary" id="confirmAdd">Tambah ke keranjang ♡</button></div></div></div>
+<script src="script.js" defer></script>
+</body>
+</html>
